@@ -1,0 +1,51 @@
+PS C:\Users\tbyers\codeProjects\Python_Code_Comparer\Project> python main.py
+====--------------------====
+If present, must be 1 or 2 or error message "Entity Type Qualifier Must Be 1 Or 2" will display. incorrect.
+Event ID,,CompareVal,In_4010,Event Description,SNIP Level,Severity,Transaction Version,Transaction ID,ID,UPath,Name,Removed in 5010 Errata,#
+
+3.94E+04,0x39392E0,39392E0_837,,Element PAT07 is missing. It is required when Medicare claim involves DME form [emp.ec_DepE_DVal]. Segment [dpe.rec.gdl.id] is defined in the guideline at position [dpe.rec.gdl.sq].{br}{br}This element was expected in:{br}{tab}Segment Count: [dpe.rec.dc]{,7,Error,005010X222,837,PAT07,"Transaction/Loop(ID=""2000B"")/Segment(ID=""PAT"")/Element(ID=""355"")",Unit or Basis for Measurement Code,,4418
+
+3.94E+04,0x39392E0,39392E0_837,,Element PAT08 is missing. It is required when Medicare claim involves DME form [emp.ec_DepE_DVal]. Segment [dpe.rec.gdl.id] is defined in the guideline at position [dpe.rec.gdl.sq].{br}{br}This element was expected in:{br}{tab}Segment Count: [dpe.rec.dc]{,7,Error,005010X222,837,PAT08,"Transaction/Loop(ID=""2000B"")/Segment(ID=""PAT"")/Element(ID=""81"")",Weight,,4420
+
+3.94E+04,0x39392E0,39392E0_837,,Element PAT07 is missing. It is required when Medicare claim involves DME form [emp.ec_DepE_DVal]. Segment [dpe.rec.gdl.id] is defined in the guideline at position [dpe.rec.gdl.sq].{br}{br}This element was expected in:{br}{tab}Segment Count: [dpe.rec.dc]{,7,Error,005010X222,837,PAT07,"Transaction/Loop(ID=""2000C"")/Segment(ID=""PAT"")/Element(ID=""355"")",Unit or Basis for Measurement Code,,4494
+
+3.94E+04,0x39392E0,39392E0_837,,Element PAT08 is missing. It is required when Medicare claim involves DME form [emp.ec_DepE_DVal]. Segment [dpe.rec.gdl.id] is defined in the guideline at position [dpe.rec.gdl.sq].{br}{br}This element was expected in:{br}{tab}Segment Count: [dpe.rec.dc]{,7,Error,005010X222,837,PAT08,"Transaction/Loop(ID=""2000C"")/Segment(ID=""PAT"")/Element(ID=""81"")",Weight,,4497
+
+3.94E+05,0x39392E1,39392E1_270,,"If present, must be 1 or 2 or error message ""Entity Type Qualifier Must Be 1 Or 2"" will display. incorrect.",2,Warning,005010X279,270,NM104,Transaction(ID = '270')[1]/Loop(ID = '2000A')[1]/Loop(ID = '2100A')[1]/Segment(ID = 'NM1')[1]/Element(ID = '1036')[1],Name First,,9
+
+3.94E+05,0x39392E1,39392E1_271,,Element NM104 is missing. It is recommended to be used when Information Source is a person (NM102='1').,2,Warning,005010X279A1,271,NM104,/Transaction(ID = '271')/Loop(ID = '2000A')/Loop(ID = '2100A')/Segment(ID = 'NM1')/Element(ID = '1036'),Name First,FALSE,1036
+
+3.94E+05,0x39392E1,39392E1_834,,Element NM104 is missing. It is recommended to be used when Member is a person (NM102='1').,2,Warning,005010X220,834,NM104,Transaction(ID = '834')[1]/Loop(ID = '2000')[1]/Loop(ID = '2100A')[1]/Segment(ID = 'NM1')[1]/Element(ID = '1036')[1],Name First,,3229
+
+3.94E+05,0x39392E1,39392E1_834,,Element NM104 is missing. It is recommended to be used when Member is a person (NM102='1').,2,Warning,005010X220,834,NM104,Transaction(ID = '834')[1]/Loop(ID = '2000')[1]/Loop(ID = '2100B')[1]/Segment(ID = 'NM1')[1]/Element(ID = '1036')[1],Name First,,3305
+
+3.94E+05,0x39392E1,39392E1_834,,Element NM104 is missing. It is recommended to be used when Member Employer is a person (NM102='1').,2,Warning,005010X220,834,NM104,Transaction(ID = '834')[1]/Loop(ID = '2000')[1]/Loop(ID = '2100D')[1]/Segment(ID = 'NM1')[1]/Element(ID = '1036')[1],Name First,,3336
+
+====--------------------====
+Submitter Type Qualifier (1000A NM102) must be present and must equal 1 or 2.
+====--------------------====
+Submitter Name (1000A NM103) must be present, must contain valid characters BIG_CHARS_LIST "0-9,a-z,A-Z,'-',' ',',','.','(',')','/','#','!','@','$','%','^','&','+','=','_','\\','|',';','<','?','{','}','\[','\]','\''", and cannot exceed max length of 60 characters.
+====--------------------====
+When Submitter Type Qualifier (1000A NM102) is present, Submitter First Name(1000A NM104) cannot be present.
+When Submitter First Name is present, it must contain valid characters VALID_NAME_CHARS_SHT "A-Z,'-',' ','.'" and cannot be longer than 35 characters.
+====--------------------====
+When Submitter Type Qualifier (1000A NM102) is 2, Submitter Middle Name (1000A NM105) cannot be present.
+When Submitter Middle Name (1000A NM105) is present, it must contain valid characters VALID_NAME_CHARS_SHT "A-Z,'-',' ','.'" and cannot exceed max length of 25
+characters.
+If this is a Medicare or MediPak Advantage claim, and the Submitter Middle name (1000A NM105) is present and contains a non-alpha character in first position, the claim will reject.
+====--------------------====
+The Submitter Id (1000A NM109) must be present, not "-", Alphanumeric, and less than 81 characters. The first position of the Submitter Id must be C, E or L.(this field is not editable from gui)
+====--------------------====
+Submitter Id must begin with "X", "U", or "E" and be 5 characters long.
+For Commercial, Submitter Id can begin with "C".
+====--------------------====
+A secondary Submitter Contact Name (1000A PER02, second iteration) is not allowed.
+====--------------------====
+Receiver Name (1000B NM103) must be present, must contain valid characters (BIG_CHARS_LIST "0-9,a-z,A-Z,'-',' ',',','.','(',')','/','#','!','@','$','%','^','&','+','=','_','\\','|',';','<','?','{','}','\[','\]','\''"), and cannot exceed 60 characters in length.
+====--------------------====
+REJECT CLAIM WITH INVALID CARRIER NUMBER IN THE 1000B, NM109.
+Elapsed time was 0.0643761 seconds
+
+
+
+{'Row': 6, 'RejectionChecked': 'If present, must be 1 or 2 or error message "Entity Type Qualifier Must Be 1 Or 2" will display. incorrect.', 'Accuracy': 1.0}
