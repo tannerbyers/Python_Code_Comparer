@@ -5,13 +5,11 @@ from CompareStrings import CompareStrings
 start_time = time.time()
 
     #              TO DO
+    # Iterate over the CurrentEdits File, Compare the Words in the IteratedNewRejections to CurrentEdits Row 
+    # Add Number of words appeared to object, return object that calculates the hightest scoring row and its row # 
+    # Add categories for high likely the returned code is to match the newones (check how many words matched and distinguish by color the ones with very few vs ones with a lot)
     # 
-    # Have the object for found values update for each rejection message. 
-    # Fix the currentRejectionRowCounter (the last row being returned is higher than the excel file)
-    # Have the python program spit out a new excel file with the data from the ClosestRow Object
-    #
-    # Improvements Needed For Accuracy!
-    # Remove the useless words or characters below and also only allow results for full words. No 'or' matches "ordering"
+    # Possible Improvement for accuracy. Remove useless "words" below and also only allow results for full words. No 'or' matches "ordering"
     # unnesacaryWords = ["the", "a", "?", "!", ".", "be", ""]
     # secondValidationRow = [word for word in rejectionMessageSplit not in unnesacaryWords]
 
@@ -28,7 +26,7 @@ def Runprogram():
         wordsInRejectionCounter = 0
         currentRejectionRowCounter = 0 
         newRejectionRowCounter = 0
-        ClosestRow = {"Row" : 0, "RejectionChecked": "", "RejectionFound": "", "Accuracy": 0}
+        ClosestRow = {"Row" : 0, "RejectionChecked": "", "Accuracy": 0}
 
 
 #Iterates over each row in New Reject File, assigning it an index    
@@ -51,21 +49,28 @@ def Runprogram():
 
         #Iterates over each row in Current Reject File, assigning it an index
                 for currentOldRow in currentRejectionsFile:
-                    currentRejectionRowCounter = currentRejectionRowCounter + 1
-                #Checks Accuracy of Two Strings
-                    accuracyOfCurrentString = CompareStrings(str(firstValidationIteratedRow), str(currentOldRow))
-                
-                #Sets Object to the most correct value
-                    if accuracyOfCurrentString > ClosestRow["Accuracy"]:
-                        ClosestRow["Accuracy"] = accuracyOfCurrentString
-                        ClosestRow["Row"] = currentRejectionRowCounter
-                        ClosestRow["RejectionChecked"] = firstValidationIteratedRow
-                        ClosestRow["RejectionFound"] = currentOldRow
+                    if currentRejectionRowCounter < 10:
+                        currentRejectionRowCounter = currentRejectionRowCounter + 1
+                    #Checks Accuracy of Two Strings
+                        accuracyOfCurrentString = CompareStrings(str(firstValidationIteratedRow), str(currentOldRow))
+                    
+                    #Sets Object to the most correct value
+                        if accuracyOfCurrentString > ClosestRow["Accuracy"]:
+                            ClosestRow["Accuracy"] = accuracyOfCurrentString
+                            ClosestRow["Row"] = currentRejectionRowCounter
+                            ClosestRow["RejectionChecked"] = firstValidationIteratedRow
+                    else:
+                        currentRejectionRowCounter = currentRejectionRowCounter + 1
 
+
+
+
+    
     end_time = time.time()
     print("Program ran for %g seconds" % (end_time - start_time))       
     print(newLineASCIIValues)
     print(ClosestRow)
+
 
 Runprogram()
 
