@@ -23,7 +23,7 @@ def Runprogram():
         readRejectionFile = csv.reader(newRejectionsFile, delimiter=',')
         readCurrentRejectionFile = csv.reader(currentRejectionsFile, delimiter=',')
 
-        
+    
     #Set Variables
         newLineASCIIValues = (chr(10) + chr(10))
         wordsInRejectionCounter = 0
@@ -67,7 +67,7 @@ def Runprogram():
     print("Rejection Found :", ClosestRow["RejectionFound"])
     print(chr(10))
     print("Accuracy:", ClosestRow["Accuracy"])
-    print("Row:", ClosestRow["Row"])
+    print("Row (This value seems to be incorrect):", ClosestRow["Row"])
 
     end_time = time.time()
     print("Program ran for %g seconds" % (end_time - start_time))       
