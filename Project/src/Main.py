@@ -53,7 +53,7 @@ def Runprogram():
 
 #Read CSV Files
      
-    with open('AHIN.csv') as newRejectionsFile, open('Combined_Analysis_2.csv') as currentRejectionsFile, open('Results.csv', "w", newline='') as resultsFile :
+    with open('Combined_Analysis_2.csv') as currentRejectionsFile, open('Results.csv', "w", newline='') as resultsFile :
         readNewRejectionFile = (getExcel())
         readCurrentRejectionFile = list(csv.reader(currentRejectionsFile, delimiter=','))
         readResultsFile = csv.writer(resultsFile)
