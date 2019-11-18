@@ -8,11 +8,11 @@ from CompareStrings import CompareStrings
 start_time = time.time()
 
     #              TO DO
+    #  Validate the data better (Example below)
+    #  Think About custom confgis for new payers
     # 
-    # Have the object for found values update for each rejection message. 
-    # Fix the both Row Counters (the last row being returned is higher than the excel file)
-    # The above counter issue might have something to do with how the excel file is read(possible linebreak issue)
-    # Have the python program spit out a new excel file with the data from the ClosestRow Object
+    #
+    # 
     #
     # Improvements Needed For Accuracy!
     # Remove the useless words or characters below and also only allow results for full words. No 'or' matches "ordering"
@@ -41,44 +41,40 @@ def StartGUI():
 
 
 def Runprogram():
-        
 #Set Variables
     newLineASCIIValues = (chr(10) + chr(10))
     currentRejectionRowCounter = 0 
     newRejectionRowCounter = 0
     counter = 0
-
     readCurrentRejectionFileList = []
 
-
 #Read CSV Files
-     
-    with open('Combined_Analysis_2.csv') as currentRejectionsFile, open('Results.csv', "w", newline='') as resultsFile :
+    with open('AHIN.csv') as newRejectionsFile, open('Combined_Analysis_2.csv') as currentRejectionsFile, open('Results.csv', "w", newline='') as resultsFile :
         readNewRejectionFile = (getExcel())
         readCurrentRejectionFile = list(csv.reader(currentRejectionsFile, delimiter=','))
         readResultsFile = csv.writer(resultsFile)
 
-        print(readNewRejectionFile)
         readCurrentRejectionFileList = readCurrentRejectionFile
 
 
         readResultsFile.writerow(['Rejection Checked'] + ['Rejection Found'] + ['Row #'] +["FormattedAccuracy"] + ["ErrorCode"])
 
 #Iterates over each row in New Reject File, assigning it an index    
-
         for row in readNewRejectionFile:
             newRejectionRowCounter = newRejectionRowCounter + 1
+            
         #Reset the Object after writing it to Results File
             ClosestRow = {"Row" : 0, "RejectionChecked": "", "RejectionFound": "", "Accuracy": 0, "ErrorCode": ""}
 
         #Sets currentRow to current iterated Row at Col 35
             currentRow = row[35]
 
-        #Only check the first rows (for testing)
+        #Custom for AHIN Edit 
         #Seperate Claim Rejection from notes into list
-            firstValidationIteratedRow = currentRow.split(newLineASCIIValues, -1)
         #Only pull the claim rejection for list 
+            firstValidationIteratedRow = currentRow.split(newLineASCIIValues, -1)
             firstValidationIteratedRow = firstValidationIteratedRow[0]
+        
         #This will seperate each iteration of a full claim rejection (for testing)
             #print("====--------------------====")
             #print(firstValidationIteratedRow)

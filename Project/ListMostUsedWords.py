@@ -1,4 +1,6 @@
-def CompareStrings(string1, string2):
+
+# Only used for finding most used words (to help with Basic Validation unnessecaryWords list )
+def ListMostUsedWords(string1, string2):
     counter = 0
     wordCounter = 0
     #The sentences should not be case senstive
@@ -6,6 +8,7 @@ def CompareStrings(string1, string2):
     CaptialString2 = string2.upper()
     newLineASCIIValues = (chr(10) + chr(10))
     splitString1 = CaptialString1.split(" ")
+    MostFoundWords = {}
 
     for word in splitString1:
 
@@ -13,6 +16,9 @@ def CompareStrings(string1, string2):
 
     #Check For Word In String And If True Add To Counter
         if CaptialString2.find(word) != -1:
+
+            MostFoundWords[word] = MostFoundWords.get(word, 0) + 1
+
             # print("The word: ")
             # print(word)
             # print("is Found in the sentence")
@@ -20,8 +26,6 @@ def CompareStrings(string1, string2):
             # print(chr(10) + chr(10))
             counter = counter + 1
     
-    MatchPercentage = (counter / len(splitString1))
-
     # print(wordCounter)
 
     # print(splitString1)
@@ -30,7 +34,7 @@ def CompareStrings(string1, string2):
     # print("{:.0%}".format(MatchPercentage))
     # print("----------------")
     # print(newLineASCIIValues)
-    return(MatchPercentage)
+    return(MostFoundWords)
 
 
 
